@@ -8,7 +8,7 @@ The current version exports the data into CSV, which can be easily imported into
 ## Install Requirements
 The first steps are to clone the repository
 ```sh
-git clone https://github.com/#
+git clone https://github.com/adamvaldez/ESPN_Extractor.git
 cd ESPN_Extractor
 ```
 
