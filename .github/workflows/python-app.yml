@@ -36,4 +36,4 @@ jobs:
       run: |
         poetry run pylint ./main.py
         poetry run pylint ./espn_extractor/
-        poetry run pylint ./test/
+        poetry run pylint ./test/test_csv_extration.py ./test/test_pipe_extration.py
