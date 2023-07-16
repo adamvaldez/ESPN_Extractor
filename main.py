@@ -1,4 +1,4 @@
-import sys
+""" Run ESPN Fantasy Data Extractor """
 import config
 from espn_extractor.extract import extract_team_records
 
