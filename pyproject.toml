@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "espn_extractor"
+version = "0.1.0"
+description = ""
+authors = ["Extract ESPN Fantasy Data into CSV and more"]
+readme = "README.md"
+packages = [{include = "espn_extractor"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pytest = "^7.4.0"
+espn-api = "^0.30.0"
+colorama = "^0.4.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
