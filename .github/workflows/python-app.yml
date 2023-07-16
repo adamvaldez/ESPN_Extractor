@@ -34,4 +34,6 @@ jobs:
         poetry run pytest
     - name: Run pylint
       run: |
-        poetry run pylint .
+        poetry run pylint main.py
+        poetry run pylint ./espn_extractor/
+        poetry run pylint ./test/
