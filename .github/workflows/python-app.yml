@@ -5,9 +5,9 @@ name: Python application
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "dev" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main" , "dev"]
 
 permissions:
   contents: read
@@ -32,3 +32,8 @@ jobs:
       run: |
         cp sample.config.py config.py
         poetry run pytest
+    - name: Run pylint
+      run: |
+        poetry run pylint main.py
+        poetry run pylint ./espn_extractor/
+        poetry run pylint ./tests/
