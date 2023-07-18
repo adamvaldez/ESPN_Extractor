@@ -39,5 +39,6 @@ jobs:
         poetry run pylint ./tests/
     - name: Security Scan with Bandit
       run: |
-        poetry run pylint -r ./espn_extractor/
-        poetry run pylint -r ./tests/
+        poetry run bandit main.py
+        poetry run bandit -r ./espn_extractor/
+        poetry run bandit -r ./tests/
