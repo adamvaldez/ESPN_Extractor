@@ -20,7 +20,11 @@ def extract_team_records(config, is_test=False) -> None:
         end_year = today.year if config.is_active else config.year_founded + 1
         for year in range(config.year_founded, end_year):
             print(f'{Fore.BLACK}Processing Year {Fore.WHITE}{year}')
-            league = get_league(config, is_test)
+            if is_test:
+                league = League(league_id=config.league_id, year=year)
+            else:
+                league = League(league_id=config.league_id, year=year,
+                                espn_s2=config.s2, swid=config.swid)
             for team in league.teams:
                 datas = [team.owner, year, tools.clean_name(team.team_name), team.wins, team.losses,
                          team.ties, team.final_standing, team.points_for, team.points_against,
@@ -28,12 +32,3 @@ def extract_team_records(config, is_test=False) -> None:
                          team.streak_type, team.standing]
                 file.write(f'{tools.format_data(datas, config.format)}\n')
     print(f'{Fore.YELLOW}Extraction Complete{Style.RESET_ALL}\n')
-
-
-def get_league(data, is_test) -> League:
-    """ Returns league or test league """
-    today = datetime.date.today()
-    if is_test:
-        return League(league_id=data.league_id, year=today.year)
-    return League(league_id=data.league_id, year=today.year,
-                  espn_s2=data.s2, swid=data.swid)

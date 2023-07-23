@@ -21,6 +21,7 @@ def extract_draft_board(config, is_test=False) -> None:
         for position in POSITIONS:
             for player in league.free_agents(position=position, size=50):
                 datas = [player.name, position, player.projected_points]
+                print(datas)
                 file.write(f'{tools.format_data(datas, config.format)}\n')
     print(f'{Fore.YELLOW}Extraction Complete{Style.RESET_ALL}\n')
 

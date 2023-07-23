@@ -1,5 +1,7 @@
 # Compiled
-__pycache__/
+__pycache__
+*.pyc
+*.pyo
 
 # Exported Data
 espn_extractor/data/*.csv
