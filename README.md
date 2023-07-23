@@ -42,6 +42,8 @@ poetry run bandit -r espn_extractor
 ```
 
 ## Sample Data
+**League History**
+
 Extracted from the espn_api test league
 ```csv
 owner,year,team_name,win,loss,draws,final_standing,points_for,points_against,acquisitions,trades,drops,streak_length,streak_type,playoff_seed
@@ -55,4 +57,17 @@ james czarnowski,2018,Team 7,10,3,0,3,1344.8000000000002,1071.9,16,1,15,4,WIN,1
 Michael Dungo,2018,Team 8,9,4,0,1,1402.7200000000003,1191.54,30,0,30,1,LOSS,3
 Lisa Mizrachi,2018,Team Mizrachi,6,7,0,8,1070.94,1281.2,0,0,0,1,WIN,5
 Wes Harris,2018,Team 10,5,8,0,9,1278.9199999999998,1243.14,21,0,21,2,LOSS,7
+```
+
+**Draft Board**
+
+Not available via espn_api test league
+```csv
+name,position,projection
+Patrick Mahomes,QB,455.76
+Josh Allen,QB,439.32
+Jalen Hurts,QB,414.37
+Joe Burrow,QB,408.07
+Lamar Jackson,QB,404.7
+...
 ```
