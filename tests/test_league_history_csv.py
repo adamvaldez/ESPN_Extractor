@@ -1,10 +1,9 @@
 """ Test Extraction of CSV File """
 import os
 import csv
-import csv_test_config
+from tests.configs import csv_test_config
 from espn_extractor.league_history import extract_team_records
 from .common_test import CommonTests
-
 
 
 class TestCsvExtraction(CommonTests):
@@ -15,7 +14,7 @@ class TestCsvExtraction(CommonTests):
     def setUp(self) -> None:
         if os.path.isfile(self.output_file):
             os.remove(self.output_file)
-        extract_team_records(csv_test_config, True)
+        extract_team_records(self.config, True)
 
     def test_csv_extraction(self):
         """ Test if CSV file is created """

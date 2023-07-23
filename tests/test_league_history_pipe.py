@@ -1,7 +1,7 @@
 """ Test Extraction of Pipe Delimited File """
 import os
 import csv
-import pipe_test_config
+from tests.configs import pipe_test_config
 from espn_extractor.league_history import extract_team_records
 from .common_test import CommonTests
 
