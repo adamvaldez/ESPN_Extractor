@@ -1,7 +1,6 @@
 # ESPN Fantasy Data Extractor
-![](https://img.shields.io/badge/Release-Alpha%20v0.3.1-DF0000)
+![](https://img.shields.io/badge/Release-Alpha%20v0.3.0-DF0000)
 [![Python application](https://github.com/adamvaldez/ESPN_Extractor/actions/workflows/python-app.yml/badge.svg)](https://github.com/adamvaldez/ESPN_Extractor/actions/workflows/python-app.yml)
-[![security: bandit](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
 
 Extract historical data from your ESPN Fantasy football league, using [espn_api](https://github.com/cwendt94/espn-api).
 The current version exports the data into CSV, which can be easily imported into SQL, Excel, and more.
@@ -25,9 +24,21 @@ cp sample.config.py config.py
 ```
 
 ## Test
-Run test to confirm setup
+Run pytest to confirm setup
 ```sh
 poetry run pytest
+```
+
+## Lint
+Run pylint
+```sh
+poetry run pylint espn_extractor
+```
+
+## Security Scan
+Run bandit security scan
+```sh
+poetry run bandit -r espn_extractor
 ```
 
 ## Sample Data

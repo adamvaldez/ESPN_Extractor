@@ -32,13 +32,7 @@ jobs:
       run: |
         cp sample.config.py config.py
         poetry run pytest
-    - name: Lint with pylint
+    - name: Run pylint
       run: |
         poetry run pylint main.py
         poetry run pylint ./espn_extractor/
-        poetry run pylint ./tests/
-    - name: Security Scan with Bandit
-      run: |
-        poetry run bandit main.py
-        poetry run bandit -r ./espn_extractor/
-        poetry run bandit -r ./tests/
