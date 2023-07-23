@@ -1,12 +1,12 @@
 """ Test Extraction of Pipe Delimited File """
 import os
 import csv
+from unittest import TestCase
 from tests.configs import pipe_test_config
 from espn_extractor.league_history import extract_team_records
-from .common_test import CommonTests
 
 
-class TestPipeExtraction(CommonTests):
+class TestPipeExtraction(TestCase):
     """ Class for Pipe Delimited Extraction Test """
     config = pipe_test_config
     output_file = f'{config.output_dir}/{config.history_file}'
@@ -18,7 +18,7 @@ class TestPipeExtraction(CommonTests):
 
     def test_pipe_extraction(self):
         """ Test if Pipe Delimited file is created """
-        self.result_file_exist(self.output_file)
+        self.assertTrue(os.path.isfile(self.output_file))
 
     def test_verify_pipe_header(self):
         """ Verify the header of Pipe Delimited test file """

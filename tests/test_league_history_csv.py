@@ -1,12 +1,12 @@
 """ Test Extraction of CSV File """
 import os
 import csv
+from unittest import TestCase
 from tests.configs import csv_test_config
 from espn_extractor.league_history import extract_team_records
-from .common_test import CommonTests
 
 
-class TestCsvExtraction(CommonTests):
+class TestCsvExtraction(TestCase):
     """ Class for CSV Extraction Test """
     config = csv_test_config
     output_file = f'{config.output_dir}/{config.history_file}'
@@ -18,7 +18,7 @@ class TestCsvExtraction(CommonTests):
 
     def test_csv_extraction(self):
         """ Test if CSV file is created """
-        self.result_file_exist(self.output_file)
+        self.assertTrue(os.path.isfile(self.output_file))
 
     def test_verify_csv_header(self):
         """ Verify the header of CSV test file """

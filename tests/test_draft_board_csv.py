@@ -3,7 +3,7 @@ import os
 import csv
 from unittest import TestCase
 import pytest
-import csv_test_config
+from tests.configs import csv_test_config
 from espn_extractor.draft_board import extract_draft_board
 
 
