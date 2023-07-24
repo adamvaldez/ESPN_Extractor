@@ -1,3 +1,21 @@
-.idea
-espn_extractor/data/league_data.csv
+# Compiled
+*.pyc
+*.pyo
+.pytest_cache
+__pycache__
+
+# Exported Data
+espn_extractor/data/*.csv
+espn_extractor/data/*.txt
+*.xlsx
+
+# Test Data
+tests/results/*.csv
+tests/results/*.txt
+
+# Configuration
 config.py
+
+# IDE settings
+.idea
+.vscode

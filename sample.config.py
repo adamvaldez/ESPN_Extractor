@@ -3,7 +3,9 @@ year_founded = 0
 is_active = False
 last_team_id = 0
 format = ','
-output_file = 'espn_extractor/data/league_data.csv'
+output_dir = 'espn_extractor/data/'
+history_file = 'league_history.csv'
+draft_file = 'draft_board.csv'
 
 # You can find these two values after logging into your espn fantasy football account on espn's website.
 # (Chrome Browser) Right click anywhere on the website and click inspect option. From there click Application
