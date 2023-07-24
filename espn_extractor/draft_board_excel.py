@@ -3,7 +3,6 @@ import datetime
 import pandas as pd
 from espn_api.football import League
 from colorama import Fore, Back, Style
-from espn_extractor.utils import tools
 
 HEADERS = ['name', 'position', 'projection']
 POSITIONS = ['RB', 'WR', 'TE', 'D/ST', 'K']
@@ -16,22 +15,24 @@ def extract_draft_cheatsheet(config, is_test=False) -> None:
     league = get_league(config, is_test)
     names, positions, projections = [], [], []
     # First Create excel file, with QB data
+    # pylint: disable=abstract-class-instantiated
     with pd.ExcelWriter(file_name) as writer:
-            print(f'{Fore.BLACK}Processing Position {Fore.WHITE}QB')
-            for player in league.free_agents(position='QB',
-                                             size=config.position_length):
-                names.append(player.name)
-                positions.append('QB')
-                projections.append(player.projected_points)
-            data_frame = pd.DataFrame({'name': names,
-                                       'position': positions,
-                                       'projection': projections})
-            data_frame.to_excel(writer, sheet_name='QB', index=False)
-            names, positions, projections = [], [], []
+        print(f'{Fore.BLACK}Processing Position {Fore.WHITE}QB')
+        for player in league.free_agents(position='QB',
+                                         size=config.position_length):
+            names.append(player.name)
+            positions.append('QB')
+            projections.append(player.projected_points)
+        data_frame = pd.DataFrame({'name': names,
+                                   'position': positions,
+                                   'projection': projections})
+        data_frame.to_excel(writer, sheet_name='QB', index=False)
+        names, positions, projections = [], [], []
     # Loop through remaining positions, and append data into new sheets
     for position in POSITIONS:
         print(f'{Fore.BLACK}Processing Position {Fore.WHITE}{position}')
         position = 'DST' if position == 'D/ST' else position
+        # pylint: disable=abstract-class-instantiated
         with pd.ExcelWriter(file_name, mode="a", engine="openpyxl") as writer:
             for player in league.free_agents(position=position,
                                              size=config.position_length):
