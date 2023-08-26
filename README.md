@@ -1,5 +1,5 @@
 # ESPN Fantasy Data Extractor
-![](https://img.shields.io/badge/Release-Alpha%20v0.3.0-DF0000)
+![](https://img.shields.io/badge/Release-Alpha%20v0.4.0-DF0000)
 [![Python application](https://github.com/adamvaldez/ESPN_Extractor/actions/workflows/python-app.yml/badge.svg)](https://github.com/adamvaldez/ESPN_Extractor/actions/workflows/python-app.yml)
 
 Extract historical data from your ESPN Fantasy football league, using [espn_api](https://github.com/cwendt94/espn-api).
@@ -24,12 +24,26 @@ cp sample.config.py config.py
 ```
 
 ## Test
-Run test to confirm setup
+Run pytest to confirm setup
 ```sh
 poetry run pytest
 ```
 
+## Lint
+Run pylint
+```sh
+poetry run pylint espn_extractor
+```
+
+## Security Scan
+Run bandit security scan
+```sh
+poetry run bandit -r espn_extractor
+```
+
 ## Sample Data
+**League History**
+
 Extracted from the espn_api test league
 ```csv
 owner,year,team_name,win,loss,draws,final_standing,points_for,points_against,acquisitions,trades,drops,streak_length,streak_type,playoff_seed
@@ -43,4 +57,16 @@ james czarnowski,2018,Team 7,10,3,0,3,1344.8000000000002,1071.9,16,1,15,4,WIN,1
 Michael Dungo,2018,Team 8,9,4,0,1,1402.7200000000003,1191.54,30,0,30,1,LOSS,3
 Lisa Mizrachi,2018,Team Mizrachi,6,7,0,8,1070.94,1281.2,0,0,0,1,WIN,5
 Wes Harris,2018,Team 10,5,8,0,9,1278.9199999999998,1243.14,21,0,21,2,LOSS,7
+```
+
+**Draft Board**
+
+Not available via espn_api test league
+```csv
+Name,Position,POS-Rank,Team,Projection,Status
+Patrick Mahomes,QB,1,KC,455.21,ACTIVE
+Josh Allen,QB,2,BUF,439.39,ACTIVE
+Jalen Hurts,QB,3,PHI,410.75,ACTIVE
+Lamar Jackson,QB,13,BAL,405.74,ACTIVE
+...
 ```

@@ -36,4 +36,3 @@ jobs:
       run: |
         poetry run pylint main.py
         poetry run pylint ./espn_extractor/
-        poetry run pylint ./tests/

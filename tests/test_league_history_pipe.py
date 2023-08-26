@@ -1,27 +1,31 @@
 """ Test Extraction of Pipe Delimited File """
 import os
 import csv
-from unittest import TestCase
-from espn_extractor.extract import extract_team_records
+from tests.configs import pipe_test_config
+from espn_extractor.league_history import extract_team_records
+from .common_test import CommonTests
 
 
-class TestPipeExtraction(TestCase):
+class TestPipeExtraction(CommonTests):
     """ Class for Pipe Delimited Extraction Test """
+    config = pipe_test_config
+    output_file = f'{config.output_dir}/{config.history_file}'
+
     def setUp(self) -> None:
-        if os.path.isfile('tests/results/test_pipe_file.txt'):
-            os.remove('tests/results/test_pipe_file.txt')
-        extract_team_records('tests/results/test_pipe_file.txt', '|', True)
+        if os.path.isfile(self.output_file):
+            os.remove(self.output_file)
+        extract_team_records(pipe_test_config, True)
 
     def test_pipe_extraction(self):
         """ Test if Pipe Delimited file is created """
-        self.assertTrue(os.path.isfile('tests/results/test_pipe_file.txt'))
+        self.assertTrue(os.path.isfile(self.output_file))
 
     def test_verify_pipe_header(self):
         """ Verify the header of Pipe Delimited test file """
         header = ['owner', 'year', 'team_name', 'win', 'loss', 'draws', 'final_standing',
                   'points_for', 'points_against', 'acquisitions', 'trades', 'drops',
                   'streak_length', 'streak_type', 'playoff_seed']
-        with open('tests/results/test_pipe_file.txt', newline='', encoding="utf8") as file:
+        with open(self.output_file, encoding="utf8") as file:
             reader = csv.reader(file, delimiter='|')
             self.assertEqual(header, next(reader))
 
@@ -29,7 +33,7 @@ class TestPipeExtraction(TestCase):
         """ Verify first line of Pipe Delimited test file """
         user_date = ['jessie marshall|2018|Team 1|10|3|0|4|1276.88|'
                      '1038.22|21|1|22|1|WIN|2']
-        with open('tests/results/test_pipe_file.txt', newline='\n', encoding="utf8") as file:
+        with open(self.output_file, encoding="utf8") as file:
             reader = csv.reader(file)
             # Skip Header
             next(reader)

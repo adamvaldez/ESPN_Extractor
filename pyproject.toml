@@ -12,6 +12,7 @@ pytest = "^7.4.0"
 espn-api = "^0.30.0"
 colorama = "^0.4.6"
 pylint = "^2.17.4"
+bandit = "^1.7.5"
 
 
 [build-system]

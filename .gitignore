@@ -1,0 +1,14 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+
+# IDE
+.idea
+
+# Configuration
+config.py
+
+# Data Export
+espn_extractor/data/*.csv
+
+test.py
