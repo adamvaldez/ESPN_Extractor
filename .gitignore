@@ -1,14 +1,22 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
+# Compiled
 *.pyc
+*.pyo
+.pytest_cache
+__pycache__
 
-# IDE
-.idea
+# Exported Data
+espn_extractor/data/*.csv
+espn_extractor/data/*.txt
+*.xlsx
+
+# Test Data
+tests/results/*.csv
+tests/results/*.txt
+>>>>>>> fab82f0fbe59753bc117db9f12510926538f8b00
 
 # Configuration
 config.py
 
-# Data Export
-espn_extractor/data/*.csv
-
-test.py
+# IDE settings
+.idea
+.vscode
