@@ -21,10 +21,11 @@ def extract_draft_board(config, is_test=False) -> None:
         for position in POSITIONS:
             for player in league.free_agents(position=position, size=50):
                 if position == 'DST':
-                    datas = [player.name, position, player.posRank, player.proTeam, player.projected_points, None]
+                    datas = [player.name, position, player.posRank, player.proTeam,
+                             player.projected_points, None]
                 else:
-                    datas = [player.name, position, player.posRank, player.proTeam, player.projected_points,
-                             player.injuryStatus]
+                    datas = [player.name, position, player.posRank, player.proTeam,
+                             player.projected_points, player.injuryStatus]
                 file.write(f'{tools.format_data(datas, config.format)}\n')
     print(f'{Fore.YELLOW}Extraction Complete{Style.RESET_ALL}\n')
 
@@ -42,10 +43,11 @@ def extract_draft_positions(config, is_test=False) -> None:
             file.write(f'{tools.format_data(HEADERS, config.format)}\n')
             for player in league.free_agents(position=position, size=50):
                 if position == 'DST':
-                    datas = [player.name, position, player.posRank, player.proTeam, player.projected_points, None]
+                    datas = [player.name, position, player.posRank, player.proTeam,
+                             player.projected_points, None]
                 else:
-                    datas = [player.name, position, player.posRank, player.proTeam, player.projected_points,
-                             player.injuryStatus]
+                    datas = [player.name, position, player.posRank, player.proTeam,
+                             player.projected_points, player.injuryStatus]
                 file.write(f'{tools.format_data(datas, config.format)}\n')
     print(f'{Fore.YELLOW}Extraction Complete{Style.RESET_ALL}\n')
 
