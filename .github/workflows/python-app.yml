@@ -34,11 +34,13 @@ jobs:
         poetry run pytest
     - name: Run pylint
       run: |
-        poetry run pylint main.py
+        poetry run pylint main_draft_data.py
+        poetry run pylint main_league_data.py
         poetry run pylint ./espn_extractor/
         poetry run pylint ./tests/
     - name: Security Scan with Bandit
       run: |
-        poetry run bandit main.py
+        poetry run bandit main_draft_data.py
+        poetry run bandit main_league_data.py
         poetry run bandit -r ./espn_extractor/
         poetry run bandit -r ./tests/

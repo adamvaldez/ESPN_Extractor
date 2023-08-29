@@ -1,20 +1,27 @@
 # ESPN Fantasy Data Extractor
-![](https://img.shields.io/badge/Release-Alpha%20v0.4.0-DF0000)
+![](https://img.shields.io/badge/Release-Alpha%20v0.5.2-DF0000)
 [![Python application](https://github.com/adamvaldez/ESPN_Extractor/actions/workflows/python-app.yml/badge.svg)](https://github.com/adamvaldez/ESPN_Extractor/actions/workflows/python-app.yml)
 
 Extract historical data from your ESPN Fantasy football league, using [espn_api](https://github.com/cwendt94/espn-api).
 The current version exports the data into CSV, which can be easily imported into SQL, Excel, and more.
 
 ## Install Requirements
-The first steps are to clone the repository
+The first step is to clone the repository
 ```sh
 git clone https://github.com/adamvaldez/ESPN_Extractor.git
+```
+
+Navigate into repo
+```sh
 cd ESPN_Extractor
 ```
 
-Install poetry and dependencies
+Install poetry
 ```sh
 pip install poetry
+```
+Use Poetry to install dependencies
+```sh
 poetry install
 ```
 
@@ -63,11 +70,10 @@ Wes Harris,2018,Team 10,5,8,0,9,1278.9199999999998,1243.14,21,0,21,2,LOSS,7
 
 Not available via espn_api test league
 ```csv
-name,position,projection
-Patrick Mahomes,QB,455.76
-Josh Allen,QB,439.32
-Jalen Hurts,QB,414.37
-Joe Burrow,QB,408.07
-Lamar Jackson,QB,404.7
+Name,Position,POS-Rank,Team,Projection,Status
+Patrick Mahomes,QB,1,KC,455.21,ACTIVE
+Josh Allen,QB,2,BUF,439.39,ACTIVE
+Jalen Hurts,QB,3,PHI,410.75,ACTIVE
+Lamar Jackson,QB,13,BAL,405.74,ACTIVE
 ...
 ```
