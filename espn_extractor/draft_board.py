@@ -20,7 +20,13 @@ def extract_draft_board(config, is_test=False) -> None:
         league = get_league(config, is_test)
         for position in POSITIONS:
             for player in league.free_agents(position=position, size=50):
-                datas = [player.name, position, player.projected_points]
+                if position == 'DST':
+                    datas = [player.name, position, player.posRank, player.proTeam,
+                             player.projected_points, None]
+                else:
+                    datas = [player.name, position, player.posRank, player.proTeam,
+                             player.projected_points, player.injuryStatus]
+
                 file.write(f'{tools.format_data(datas, config.format)}\n')
     print(f'{Fore.YELLOW}Extraction Complete{Style.RESET_ALL}\n')
 
@@ -37,7 +43,12 @@ def extract_draft_positions(config, is_test=False) -> None:
         with open(file_name, "a", encoding="utf8") as file:
             file.write(f'{tools.format_data(HEADERS, config.format)}\n')
             for player in league.free_agents(position=position, size=50):
-                datas = [player.name, position, player.projected_points]
+                if position == 'DST':
+                    datas = [player.name, position, player.posRank, player.proTeam,
+                             player.projected_points, None]
+                else:
+                    datas = [player.name, position, player.posRank, player.proTeam,
+                             player.projected_points, player.injuryStatus]
                 file.write(f'{tools.format_data(datas, config.format)}\n')
     print(f'{Fore.YELLOW}Extraction Complete{Style.RESET_ALL}\n')
 

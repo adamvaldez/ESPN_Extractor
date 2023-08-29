@@ -15,6 +15,8 @@ pylint = "^2.17.4"
 bandit = "^1.7.5"
 pandas = "^2.0.3"
 openpyxl = "^3.1.2"
+panda = "^0.3.1"
+
 
 
 [build-system]
