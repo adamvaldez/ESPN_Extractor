@@ -3,9 +3,9 @@
 [![Python application](https://github.com/adamvaldez/ESPN_Extractor/actions/workflows/python-app.yml/badge.svg)](https://github.com/adamvaldez/ESPN_Extractor/actions/workflows/python-app.yml)
 
 Leveraging [espn_api](https://github.com/cwendt94/espn-api) to extract ESPN Fantasy Football Data, this project can export the following:
-1.) ESPN Fantasy Excel Draft CheatSheet, using your leagues custom scoring to calculate espn projects vs. standard scoring
-2.) ESPN Fantasy Draft Data files, CSV or Piple delimited files that are perfect for uploading to an SQL database and more.
-3.) ESPN Fantasy Footbal League History, outputs a CSV file with every teams historical data. Data can be used to create leaderboards in many categories.
+1. ESPN Fantasy Excel Draft CheatSheet, using your leagues custom scoring to calculate espn projects vs. standard scoring
+2. ESPN Fantasy Draft Data files, CSV or Piple delimited files that are perfect for uploading to an SQL database and more.
+3.  ESPN Fantasy Footbal League History, outputs a CSV file with every teams historical data. Data can be used to create leaderboards in many categories.
 
 ## Install Requirements
 The first step is to clone the repository
