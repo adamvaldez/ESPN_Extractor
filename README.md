@@ -18,13 +18,9 @@ Navigate into repo
 cd ESPN_Extractor
 ```
 
-Install poetry
+Install requirements 
 ```sh
-pip install poetry
-```
-Use Poetry to install dependencies
-```sh
-poetry install
+pip install -r requirements.txt
 ```
 
 Make a copy of the sample config file. Update with your data.
@@ -32,22 +28,16 @@ Make a copy of the sample config file. Update with your data.
 cp sample.config.py config.py
 ```
 
-## Test
-Run pytest to confirm setup
-```sh
-poetry run pytest
-```
-
 ## Lint
 Run pylint
 ```sh
-poetry run pylint espn_extractor
+pylint espn_extractor
 ```
 
 ## Security Scan
 Run bandit security scan
 ```sh
-poetry run bandit -r espn_extractor
+bandit -r espn_extractor
 ```
 
 ## Sample Data
