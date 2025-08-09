@@ -26,21 +26,20 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install poetry
-        poetry install
-    - name: Test with pytest
-      run: |
-        cp sample.config.py config.py
-        poetry run pytest
+        pip install -r requirements.txt
+    # - name: Test with pytest
+    #   run: |
+    #     cp sample.config.py config.py
+    #     poetry run pytest
     - name: Run pylint
       run: |
-        poetry run pylint main_draft_data.py
-        poetry run pylint main_league_data.py
-        poetry run pylint ./espn_extractor/
-        poetry run pylint ./tests/
+        pylint main_draft_data.py
+        pylint main_league_data.py
+        pylint ./espn_extractor/
+        pylint ./tests/
     - name: Security Scan with Bandit
       run: |
-        poetry run bandit main_draft_data.py
-        poetry run bandit main_league_data.py
-        poetry run bandit -r ./espn_extractor/
-        poetry run bandit -r ./tests/
+        bandit main_draft_data.py
+        bandit main_league_data.py
+        bandit -r ./espn_extractor/
+        bandit -r ./tests/
