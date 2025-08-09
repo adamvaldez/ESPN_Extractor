@@ -26,7 +26,7 @@ def extract_team_records(config, is_test=False) -> None:
                 league = League(league_id=config.league_id, year=year,
                                 espn_s2=config.s2, swid=config.swid)
             for team in league.teams:
-                datas = [team.owner, year, tools.clean_name(team.team_name), team.wins, team.losses,
+                datas = [f'{team.owners[0]['firstName']} {team.owners[0]['lastName']}',
                          team.ties, team.final_standing, team.points_for, team.points_against,
                          team.acquisitions, team.trades, team.drops, team.streak_length,
                          team.streak_type, team.standing]
